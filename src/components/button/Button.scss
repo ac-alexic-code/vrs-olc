@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+button {
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $default-padding;
+  line-height: 48px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: $default-background;
+  margin: $default-margin;
+  font-size: $default-font-size;
+  &:nth-of-type(2) {
+    border-right: $default-border;
+    border-left: $default-border;
+  }
+
+  @include for-desktop {
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 0 16px;
+    justify-content: left;
+
+    &:nth-of-type(2) {
+      border-bottom: $default-border;
+      border-top: $default-border;
+      border-right: none;
+      border-left: none;
+    }
+  }
+}

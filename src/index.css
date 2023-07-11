@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.navbar__menu-categories {
+  display: flex;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: space-around;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 601px) {
+  .navbar__menu-categories {
+    display: block;
+  }
+}
