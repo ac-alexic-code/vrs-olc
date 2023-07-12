@@ -1,9 +1,13 @@
+import Icon from "./components/icon/Icon";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1>vrs</h1>
+    <div>
+      <Icon name="facebook" />
+      <Icon name="instagram" />
+      </div>
     </>
   );
 }
