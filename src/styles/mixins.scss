@@ -1,5 +1,0 @@
-@mixin for-desktop {
-  @media screen and (min-width: 601px) {
-    @content;
-  }
-}
