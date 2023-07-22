@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
 import styled from "@emotion/styled";
-import { forDesktop } from "../../styles/mixins";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -18,19 +17,19 @@ const StyledButton = styled.button`
   width: 100%;
   ${({ theme }) => `
     &:nth-of-type(2) {
-      border-right: ${theme.defaultBorder};
-      border-left: ${theme.defaultBorder};
+      border-right: ${theme.border.default};
+      border-left: ${theme.border.default};
     }
 
-    ${forDesktop(`
+    ${theme.mixins.forDesktop(`
       font-weight: 600;
       letter-spacing: 2px;
       padding: 0 16px;
       justify-content: left;
 
       &:nth-of-type(2) {
-        border-bottom: ${theme.defaultBorder};
-        border-top: ${theme.defaultBorder};
+        border-bottom: ${theme.border.default};
+        border-top: ${theme.border.default};
         border-right: 0;
         border-left: 0;
       }
