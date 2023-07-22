@@ -3,3 +3,5 @@ export const theme = {
   defaultBorder: "2px solid black",
   defaultBackground: "white",
 };
+
+export type Theme = typeof theme;

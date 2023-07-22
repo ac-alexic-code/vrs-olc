@@ -4,6 +4,12 @@ import Button from "./components/button/Button";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./styles/theme";
 
+import { Theme as ThemeType } from "./styles/theme";
+declare module "@emotion/react" {
+  // eslint-disable-next-line
+  interface Theme extends ThemeType {}
+}
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
