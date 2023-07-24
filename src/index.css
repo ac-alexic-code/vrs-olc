@@ -9,15 +9,3 @@ html {
   font-size: 16px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
-.navbar__menu-categories {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-@media screen and (min-width: 601px) {
-  .navbar__menu-categories {
-    display: block;
-  }
-}
