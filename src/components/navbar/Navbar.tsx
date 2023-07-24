@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Button from "../button/Button";
+import LanguageButtons from "../language-buttons/LanguageButtons";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import logo from "../../assets/logo.png";
@@ -61,10 +62,7 @@ const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
-        <Languages>
-          <LanguageButton>pl</LanguageButton>
-          <LanguageButton>en</LanguageButton>
-        </Languages>
+        <LanguageButtons />
         <LogoImage src={logo} alt="Logo" />
         <NavbarIcons>
           <a href="https://www.facebook.com/veganramenshop" target="_blank">

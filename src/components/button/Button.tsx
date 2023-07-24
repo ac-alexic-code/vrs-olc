@@ -6,9 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const StyledButton = styled.button`
-  all: unset;
-  text-transform: uppercase;
-  cursor: pointer;
+  ${({ theme }) => theme.mixins.defaultButton()};
   width: 100%;
   display: flex;
   justify-content: center;
