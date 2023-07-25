@@ -53,27 +53,12 @@ const NavbarIcons = styled.div`
     `)}
 `;
 
-// const NavbarMenuCategories = styled.div`
-//   display: flex;
-//   width: 100%;
-//   ${({ theme }) => `
-//     border-top: ${theme.border.default};
-//     border-bottom: ${theme.border.default};
-//   `}
-
-//   ${theme.mixins.forDesktop(`
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     height: auto;
-//   `)}
-// `;
-
 const DesktopMenuCategories = styled.div`
   display: none;
+  border-top: ${theme.border.default};
   ${({ theme }) =>
     theme.mixins.forDesktop(`
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
@@ -93,11 +78,31 @@ const MobileMenuCategories = styled.div`
   `)}
 `;
 
+const DesktopLanguagesContainer = styled.div`
+  display: none;
+  ${({ theme }) => `
+  ${theme.mixins.forDesktop(`
+    display: flex;
+  `)}
+  `}
+`;
+
+const MobileLanguagesContainer = styled.div`
+  display: flex;
+  ${({ theme }) => `
+  ${theme.mixins.forDesktop(`
+    display: none;
+  `)}
+  `}
+`;
+
 const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
-        <LanguageButtons />
+        <MobileLanguagesContainer>
+          <LanguageButtons />
+        </MobileLanguagesContainer>
         <Logo />
         <MenuBars />{" "}
       </NavbarUpperContainer>
@@ -110,6 +115,9 @@ const Navbar: React.FC = () => {
         <Button>ramen</Button>
         <Button>napoje</Button>
       </MobileMenuCategories>
+      <DesktopLanguagesContainer>
+        <LanguageButtons />
+      </DesktopLanguagesContainer>
 
       <NavbarIcons>
         <a href="https://www.facebook.com/veganramenshop" target="_blank">
