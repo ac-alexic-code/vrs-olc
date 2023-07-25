@@ -43,13 +43,14 @@ const NavbarIcons = styled.div`
     theme.mixins.forDesktop(`
       display: flex;
       justify-content: center;
+      align-items: flex-end;
+      height: auto;
       & > * {
         font-size: 28px;
         padding: 10px;
         cursor: pointer;
         color: black;
       }
-      margin-top: 300px;
     `)}
 `;
 
