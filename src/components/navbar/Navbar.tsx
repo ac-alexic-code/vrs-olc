@@ -3,8 +3,8 @@ import Button from "../button/Button";
 import LanguageButtons from "../language-buttons/LanguageButtons";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
-import logo from "../../assets/logo.png";
 import MenuBars from "../menu-bars/MenuBars";
+import Logo from "../logo/Logo";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -12,53 +12,85 @@ const NavbarUpperContainer = styled.div`
   justify-content: space-between;
   padding: 0 1.25em;
   width: 100%;
+  height: 90px;
   ${theme.mixins.forDesktop(`
-      flex-direction: column;
-      padding: 0;
-  `)}
-`;
-
-const LogoImage = styled.img`
-  width: 100px;
-  height: auto;
-  ${theme.mixins.forDesktop(`
-    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    height: auto;
   `)}
 `;
 
 const NavbarContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: block;
+  width: 100%;
   ${({ theme }) => `
-      background-color: ${theme.colors.white};
-      width: 100%;
-      height: auto;
-    `}
+    background-color: ${theme.colors.white};
+  `}
 
   ${theme.mixins.forDesktop(`
-      width: 20%;
-      height: 100%; 
-      border-right: ${theme.border.default};
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    border-right: ${theme.border.default};
   `)}
 `;
 
 const NavbarIcons = styled.div`
   display: none;
+  ${({ theme }) =>
+    theme.mixins.forDesktop(`
+      display: flex;
+      justify-content: center;
+      & > * {
+        font-size: 28px;
+        padding: 10px;
+        cursor: pointer;
+        color: black;
+      }
+      margin-top: 300px;
+    `)}
 `;
 
-const NavbarMenuCategories = styled.div`
+// const NavbarMenuCategories = styled.div`
+//   display: flex;
+//   width: 100%;
+//   ${({ theme }) => `
+//     border-top: ${theme.border.default};
+//     border-bottom: ${theme.border.default};
+//   `}
+
+//   ${theme.mixins.forDesktop(`
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     height: auto;
+//   `)}
+// `;
+
+const DesktopMenuCategories = styled.div`
+  display: none;
+  ${({ theme }) =>
+    theme.mixins.forDesktop(`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+  `)}
+`;
+
+const MobileMenuCategories = styled.div`
   display: flex;
   width: 100%;
+  height: auto;
   ${({ theme }) => `
-      border-top: ${theme.border.default};
-      border-bottom: ${theme.border.default};`}
-
+    border-top: ${theme.border.default};
+    border-bottom: ${theme.border.default};
+  `}
   ${theme.mixins.forDesktop(`
-        flex-direction: column;
-        
-    `)}
+    display: none;
+  `)}
 `;
 
 const Navbar: React.FC = () => {
@@ -66,23 +98,27 @@ const Navbar: React.FC = () => {
     <NavbarContainer>
       <NavbarUpperContainer>
         <LanguageButtons />
-        <LogoImage src={logo} alt="Logo" />
-        <NavbarIcons>
-          <a href="https://www.facebook.com/veganramenshop" target="_blank">
-            <Icon name="facebook" />
-          </a>
-          <a href="https://www.instagram.com/veganramenshop" target="_blank">
-            <Icon name="instagram" />
-          </a>
-        </NavbarIcons>
+        <Logo />
         <MenuBars />{" "}
       </NavbarUpperContainer>
-
-      <NavbarMenuCategories>
+      <DesktopMenuCategories>
+        <Button>menu</Button>
+        <Button>kontakt</Button>
+      </DesktopMenuCategories>
+      <MobileMenuCategories>
         <Button>przystawki</Button>
         <Button>ramen</Button>
         <Button>napoje</Button>
-      </NavbarMenuCategories>
+      </MobileMenuCategories>
+
+      <NavbarIcons>
+        <a href="https://www.facebook.com/veganramenshop" target="_blank">
+          <Icon name="facebook" />
+        </a>
+        <a href="https://www.instagram.com/veganramenshop" target="_blank">
+          <Icon name="instagram" />
+        </a>
+      </NavbarIcons>
     </NavbarContainer>
   );
 };

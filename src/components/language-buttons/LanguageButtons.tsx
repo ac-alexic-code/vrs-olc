@@ -10,8 +10,9 @@ const LanguagesContainer = styled.div`
     theme.mixins.forDesktop(`
       border-bottom: ${theme.border.default};
       width: 100%;
-      height: 64px;
+      height: 40px;
       justify-content: center;
+      
 
       & > :not(:last-child) {
         border-right: ${theme.border.default};

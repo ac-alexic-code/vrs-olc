@@ -6,7 +6,6 @@ const MenuBarsContainer = styled.div`
   ${({ theme }) =>
     theme.mixins.forDesktop(`
     display: none;
-
     `)}
 `;
 
