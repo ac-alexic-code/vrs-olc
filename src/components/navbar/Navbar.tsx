@@ -4,6 +4,7 @@ import LanguageButtons from "../language-buttons/LanguageButtons";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import logo from "../../assets/logo.png";
+import MenuBars from "../menu-bars/MenuBars";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -74,7 +75,7 @@ const Navbar: React.FC = () => {
             <Icon name="instagram" />
           </a>
         </NavbarIcons>
-        <Icon name="menuBars" />
+        <MenuBars />{" "}
       </NavbarUpperContainer>
 
       <NavbarMenuCategories>
