@@ -19,6 +19,7 @@ const colors = {
 
 const fontSize = {
   base: "16px",
+  smaller: "12px",
 };
 
 const padding = {

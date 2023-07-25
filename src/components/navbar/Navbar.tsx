@@ -9,25 +9,20 @@ const NavbarUpperContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
   padding: 0 1.25em;
   width: 100%;
-`;
-
-const Languages = styled.div`
-  display: flex;
-  & > :not(:last-child) {
-    margin-right: 0.65em;
-  }
-`;
-
-const LanguageButton = styled(Button)`
-  border: 0 !important;
+  ${theme.mixins.forDesktop(`
+      flex-direction: column;
+      padding: 0;
+  `)}
 `;
 
 const LogoImage = styled.img`
   width: 100px;
   height: auto;
+  ${theme.mixins.forDesktop(`
+    width: 100%;
+  `)}
 `;
 
 const NavbarContainer = styled.div`
@@ -36,8 +31,16 @@ const NavbarContainer = styled.div`
   align-items: center;
   flex-direction: column;
   ${({ theme }) => `
-      background-color: ${theme.colors.white}
-      `}
+      background-color: ${theme.colors.white};
+      width: 100%;
+      height: auto;
+    `}
+
+  ${theme.mixins.forDesktop(`
+      width: 20%;
+      height: 100%; 
+      border-right: ${theme.border.default};
+  `)}
 `;
 
 const NavbarIcons = styled.div`
@@ -46,15 +49,14 @@ const NavbarIcons = styled.div`
 
 const NavbarMenuCategories = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
   ${({ theme }) => `
       border-top: ${theme.border.default};
       border-bottom: ${theme.border.default};`}
 
   ${theme.mixins.forDesktop(`
-        border-left: ${theme.border.default};
+        flex-direction: column;
+        
     `)}
 `;
 

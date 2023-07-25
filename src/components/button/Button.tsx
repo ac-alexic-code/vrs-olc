@@ -12,17 +12,18 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   line-height: 48px;
-  width: 100%;
   ${({ theme }) => `
     &:nth-of-type(2) {
       border-right: ${theme.border.default};
       border-left: ${theme.border.default};
     }
+    
 
     ${theme.mixins.forDesktop(`
+      max-width: 100%;
       font-weight: 600;
       letter-spacing: 2px;
-      padding: 0 16px;
+      padding-left: 16px;
       justify-content: left;
 
       &:nth-of-type(2) {
