@@ -28,9 +28,6 @@ const StyledButton = styled.button`
 
       &:nth-of-type(2) {
         border-bottom: ${theme.border.default};
-        border-top: ${theme.border.default};
-        border-right: 0;
-        border-left: 0;
       }
     `)}
   `}

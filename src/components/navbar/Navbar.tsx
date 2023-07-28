@@ -3,14 +3,14 @@ import Button from "../button/Button";
 import LanguageButtons from "../language-buttons/LanguageButtons";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
-import MenuBars from "../menu-bars/MenuBars";
 import Logo from "../logo/Logo";
+import Hamburger from "../hamburger/Hamburger";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25em;
+  padding: 0 20px;
   width: 100%;
   height: 90px;
   ${theme.mixins.forDesktop(`
@@ -45,7 +45,7 @@ const NavbarIcons = styled.div`
       justify-content: center;
       align-items: flex-end;
       height: auto;
-      & > * {
+      a {
         font-size: 28px;
         padding: 10px;
         cursor: pointer;
@@ -97,6 +97,12 @@ const MobileLanguagesContainer = styled.div`
   `}
 `;
 
+const Wrapper = styled.div`
+  ${({ theme }) => `
+        border-bottom: ${theme.border.default};
+    `}
+`;
+
 const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
@@ -105,12 +111,17 @@ const Navbar: React.FC = () => {
           <LanguageButtons />
         </MobileLanguagesContainer>
         <Logo />
-        <MenuBars />{" "}
+        <Hamburger />
       </NavbarUpperContainer>
       <DesktopMenuCategories>
-        <Button>menu</Button>
-        <Button>kontakt</Button>
+        <Wrapper>
+          <Button>menu</Button>
+        </Wrapper>
+        <Wrapper>
+          <Button>kontakt</Button>
+        </Wrapper>
       </DesktopMenuCategories>
+
       <MobileMenuCategories>
         <Button>przystawki</Button>
         <Button>ramen</Button>

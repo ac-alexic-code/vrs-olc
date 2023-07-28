@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 const LanguagesContainer = styled.div`
   display: flex;
   padding: 0;
-  & > :not(:last-child) {
-    margin-right: 0.65em;
+  & :not(:last-child) {
+    margin-right: 10px;
   }
   ${({ theme }) =>
     theme.mixins.forDesktop(`
@@ -14,7 +14,7 @@ const LanguagesContainer = styled.div`
       justify-content: center;
       
 
-      & > :not(:last-child) {
+      & :not(:last-child) {
         border-right: ${theme.border.default};
         margin: 0  
       }
@@ -31,7 +31,7 @@ const LanguageButton = styled.button`
       align-items: center;
       width: 100%;
       padding: 0 15px;
-      font-size: ${theme.fontSize.smaller};
+      font-size: 0.75rem;
 `)}
 `;
 
