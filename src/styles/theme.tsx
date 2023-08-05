@@ -10,6 +10,15 @@ const mixins = {
     text-transform: uppercase;
     cursor: pointer;
   `,
+
+  defaultHover: () => `
+    &:hover {
+      background-color: #e0e0e0;
+    }
+    &:active {
+      background-color: #bebdbd;
+    }
+  `,
 };
 
 const colors = {
@@ -33,6 +42,10 @@ const border = {
   default: `2px solid ${colors.black}`,
 };
 
+const letterSpacing = {
+  default: "2px",
+};
+
 export const theme = {
   colors,
   fontSize,
@@ -40,6 +53,7 @@ export const theme = {
   margin,
   border,
   mixins,
+  letterSpacing,
 };
 
 export type Theme = typeof theme;

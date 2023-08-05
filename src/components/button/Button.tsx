@@ -17,12 +17,11 @@ const StyledButton = styled.button`
       border-right: ${theme.border.default};
       border-left: ${theme.border.default};
     }
-    
 
     ${theme.mixins.forDesktop(`
       max-width: 100%;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: ${theme.letterSpacing.default};
       padding-left: 16px;
       justify-content: left;
 
