@@ -22,7 +22,7 @@ const DropdownContainer = styled.div`
     ${theme.mixins.forDesktop(`
       display: none;
     `)}
-    & > :first-child {
+    & > :first-of-type {
     border-top: ${theme.border.default};
   }
   `}
