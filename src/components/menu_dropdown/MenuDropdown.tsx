@@ -1,4 +1,14 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const DropdownButton = styled.button`
   ${({ theme }) => `
@@ -19,9 +29,6 @@ const DropdownButton = styled.button`
 
 const DropdownContainer = styled.div`
   ${({ theme }) => `
-    ${theme.mixins.forDesktop(`
-      display: none;
-    `)}
     & > :first-of-type {
     border-top: ${theme.border.default};
   }
@@ -32,6 +39,7 @@ const DropdownContainer = styled.div`
   right: 25px;
   height: min-content;
   width: 200px;
+  animation: ${fadeIn} 0.5s;
 `;
 
 const Overlay = styled.div`
