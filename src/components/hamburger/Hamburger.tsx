@@ -25,7 +25,12 @@ const Hamburger: React.FC = () => {
       <HamburgerContainer onClick={handleHamburgerClick}>
         <Icon name="hamburger" />
       </HamburgerContainer>
-      {isDropdownVisible && <MenuDropdown />}
+      {isDropdownVisible && (
+        <MenuDropdown
+          isOpen={isDropdownVisible}
+          onClose={() => setIsDropdownVisible(false)}
+        />
+      )}
     </>
   );
 };

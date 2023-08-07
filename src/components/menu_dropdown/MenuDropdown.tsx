@@ -32,17 +32,39 @@ const DropdownContainer = styled.div`
   right: 25px;
   height: min-content;
   width: 200px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
-const MenuDropdown: React.FC = () => {
+const Overlay = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+`;
+
+interface MenuDropdownProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
+  const handleDropdown = () => {
+    if (isOpen) {
+      onClose();
+    }
+  };
+
   return (
-    <DropdownContainer>
-      <DropdownButton>menu</DropdownButton>
-      <DropdownButton>kontakt</DropdownButton>
-      <DropdownButton>facebook</DropdownButton>
-      <DropdownButton>instagram</DropdownButton>
-    </DropdownContainer>
+    <>
+      {isOpen && <Overlay onClick={handleDropdown} />}
+      <DropdownContainer>
+        <DropdownButton>menu</DropdownButton>
+        <DropdownButton>kontakt</DropdownButton>
+        <DropdownButton>facebook</DropdownButton>
+        <DropdownButton>instagram</DropdownButton>
+      </DropdownContainer>
+    </>
   );
 };
 
