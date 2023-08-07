@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useSpring, animated } from "@react-spring/web";
 
 const DropdownButton = styled.button`
   ${({ theme }) => `
@@ -18,7 +17,7 @@ const DropdownButton = styled.button`
   text-align: left;
 `;
 
-const DropdownContainer = styled(animated.div)`
+const DropdownContainer = styled.div`
   ${({ theme }) => `
     ${theme.mixins.forDesktop(`
       display: none;
@@ -50,11 +49,6 @@ interface MenuDropdownProps {
 }
 
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
-  const animationProps = useSpring({
-    opacity: isOpen ? 1 : 0,
-    config: { duration: 300 },
-  });
-
   const handleDropdown = () => {
     if (isOpen) {
       onClose();
@@ -64,7 +58,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
   return (
     <>
       {isOpen && <Overlay onClick={handleDropdown} />}
-      <DropdownContainer style={animationProps}>
+      <DropdownContainer>
         <DropdownButton>menu</DropdownButton>
         <DropdownButton>kontakt</DropdownButton>
         <DropdownButton>facebook</DropdownButton>
