@@ -4,6 +4,12 @@ const mixins = {
       ${content}
     }
   `,
+
+  defaultButton: () => `
+    all: unset;
+    text-transform: uppercase;
+    cursor: pointer;
+  `,
 };
 
 const colors = {

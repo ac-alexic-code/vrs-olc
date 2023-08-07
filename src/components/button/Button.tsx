@@ -6,32 +6,28 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const StyledButton = styled.button`
-  all: unset;
-  text-transform: uppercase;
-  cursor: pointer;
+  ${({ theme }) => theme.mixins.defaultButton()};
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 48px;
-  width: 100%;
   ${({ theme }) => `
     &:nth-of-type(2) {
       border-right: ${theme.border.default};
       border-left: ${theme.border.default};
     }
+    
 
     ${theme.mixins.forDesktop(`
+      max-width: 100%;
       font-weight: 600;
       letter-spacing: 2px;
-      padding: 0 16px;
+      padding-left: 16px;
       justify-content: left;
 
       &:nth-of-type(2) {
         border-bottom: ${theme.border.default};
-        border-top: ${theme.border.default};
-        border-right: 0;
-        border-left: 0;
       }
     `)}
   `}

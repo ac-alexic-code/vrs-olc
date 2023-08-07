@@ -1,22 +1,7 @@
-import { Icon } from "./components/icon/Icon";
-import Button from "./components/button/Button";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
-  return (
-    <div className="navbar">
-      <a href="https://www.facebook.com/veganramenshop" target="_blank">
-        <Icon name="facebook" />
-      </a>
-      <a href="https://www.instagram.com/veganramenshop" target="_blank">
-        <Icon name="instagram" />
-      </a>
-      <div className="navbar__menu-categories">
-        <Button>przystawki</Button>
-        <Button>ramen</Button>
-        <Button>napoje</Button>
-      </div>
-    </div>
-  );
+  return <Navbar />;
 }
 
 export default App;
