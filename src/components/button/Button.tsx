@@ -17,6 +17,7 @@ const StyledButton = styled.button`
       border-right: ${theme.border.default};
       border-left: ${theme.border.default};
     }
+    
 
     ${theme.mixins.forDesktop(`
       max-width: 100%;

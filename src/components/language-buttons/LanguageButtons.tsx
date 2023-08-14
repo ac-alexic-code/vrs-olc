@@ -32,7 +32,6 @@ const LanguageButton = styled.button`
       width: 100%;
       padding: 0 15px;
       font-size: 0.75rem;
-
       ${theme.mixins.defaultHover()}
     `)}
   `}
