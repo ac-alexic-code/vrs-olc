@@ -28,11 +28,13 @@ const DropdownButton = styled.button`
 `;
 
 const DropdownContainer = styled.div`
-  ${({ theme }) => `
-    & > :first-of-type {
-    border-top: ${theme.border.default};
+  ${({ theme }) =>
+    theme.mixins.forDesktop(`
+    display: none;
+  `)}
+  & > :first-of-type {
+    border-top: ${({ theme }) => theme.border.default};
   }
-  `}
   z-index: 2000;
   position: absolute;
   top: 70px;
