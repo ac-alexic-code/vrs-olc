@@ -22,7 +22,7 @@ const StyledButton = styled.button`
     ${theme.mixins.forDesktop(`
       max-width: 100%;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: ${theme.letterSpacing.default};
       padding-left: 16px;
       justify-content: left;
 

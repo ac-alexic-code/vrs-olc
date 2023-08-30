@@ -100,6 +100,7 @@ const MobileLanguagesContainer = styled.div`
 const Wrapper = styled.div`
   ${({ theme }) => `
         border-bottom: ${theme.border.default};
+        ${theme.mixins.defaultHover()}
     `}
 `;
 

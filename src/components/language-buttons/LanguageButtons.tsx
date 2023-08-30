@@ -22,17 +22,19 @@ const LanguagesContainer = styled.div`
 `;
 
 const LanguageButton = styled.button`
-  ${({ theme }) => theme.mixins.defaultButton()};
+  ${({ theme }) => `
+    ${theme.mixins.defaultButton()};
 
-  ${({ theme }) =>
-    theme.mixins.forDesktop(`
+    ${theme.mixins.forDesktop(`
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       padding: 0 15px;
       font-size: 0.75rem;
-`)}
+      ${theme.mixins.defaultHover()}
+    `)}
+  `}
 `;
 
 const LanguageButtons: React.FC = () => {
