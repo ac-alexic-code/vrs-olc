@@ -5,6 +5,7 @@ import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
+import StyledLink from "../styled_link/StyledLink";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -116,10 +117,14 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button>menu</Button>
+          <Button>
+            <StyledLink href="/menu">menu</StyledLink>
+          </Button>
         </Wrapper>
         <Wrapper>
-          <Button>kontakt</Button>
+          <Button>
+            <StyledLink href="/contact">kontakt</StyledLink>
+          </Button>
         </Wrapper>
       </DesktopMenuCategories>
 

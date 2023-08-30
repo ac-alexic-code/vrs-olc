@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import StyledLink from "../styled_link/StyledLink";
 
 const fadeIn = keyframes`
   from {
@@ -69,10 +70,28 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
     <>
       {isOpen && <Overlay onClick={handleDropdown} />}
       <DropdownContainer>
-        <DropdownButton>menu</DropdownButton>
-        <DropdownButton>kontakt</DropdownButton>
-        <DropdownButton>facebook</DropdownButton>
-        <DropdownButton>instagram</DropdownButton>
+        <DropdownButton>
+          <StyledLink href="/menu">menu</StyledLink>
+        </DropdownButton>
+        <DropdownButton>
+          <StyledLink href="/contact">kontakt</StyledLink>
+        </DropdownButton>
+        <DropdownButton>
+          <StyledLink
+            href="https://www.facebook.com/veganramenshop"
+            target="_blank"
+          >
+            facebook
+          </StyledLink>
+        </DropdownButton>
+        <DropdownButton>
+          <StyledLink
+            href="https://www.instagram.com/veganramenshop"
+            target="_blank"
+          >
+            instagram
+          </StyledLink>
+        </DropdownButton>
       </DropdownContainer>
     </>
   );

@@ -19,6 +19,12 @@ const mixins = {
       background-color: #bebdbd;
     }
   `,
+
+  defaultLink: () => `
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  `,
 };
 
 const colors = {
