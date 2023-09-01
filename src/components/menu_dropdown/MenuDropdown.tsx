@@ -71,14 +71,14 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
       {isOpen && <Overlay onClick={handleDropdown} />}
       <DropdownContainer>
         <DropdownButton>
-          <StyledLink href="/menu">menu</StyledLink>
+          <StyledLink to="/menu">menu</StyledLink>
         </DropdownButton>
         <DropdownButton>
-          <StyledLink href="/contact">kontakt</StyledLink>
+          <StyledLink to="/contact">kontakt</StyledLink>
         </DropdownButton>
         <DropdownButton>
           <StyledLink
-            href="https://www.facebook.com/veganramenshop"
+            to="https://www.facebook.com/veganramenshop"
             target="_blank"
           >
             facebook
@@ -86,7 +86,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
         </DropdownButton>
         <DropdownButton>
           <StyledLink
-            href="https://www.instagram.com/veganramenshop"
+            to="https://www.instagram.com/veganramenshop"
             target="_blank"
           >
             instagram

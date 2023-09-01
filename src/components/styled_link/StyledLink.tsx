@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
 
-const StyledLink = styled.a`
+const StyledLink = styled(NavLink)`
   ${({ theme }) => theme.mixins.defaultLink}
 `;
 
