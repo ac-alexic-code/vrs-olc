@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import StyledLink from "../styled_link/StyledLink";
 
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -92,6 +93,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
             instagram
           </StyledLink>
         </DropdownButton>
+
       </DropdownContainer>
     </>
   );
