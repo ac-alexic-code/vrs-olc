@@ -5,6 +5,8 @@ import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
+import StyledLink from "../styled-link/StyledLink";
+import { useLocation } from "react-router-dom";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -13,6 +15,9 @@ const NavbarUpperContainer = styled.div`
   padding: 0 20px;
   width: 100%;
   height: 90px;
+  ${({ theme }) => `
+    border-bottom: ${theme.border.default};
+  `}
   ${theme.mixins.forDesktop(`
     flex-direction: column;
     padding: 0;
@@ -56,7 +61,6 @@ const NavbarIcons = styled.div`
 
 const DesktopMenuCategories = styled.div`
   display: none;
-  border-top: ${theme.border.default};
   ${({ theme }) =>
     theme.mixins.forDesktop(`
     display: flex;
@@ -71,7 +75,6 @@ const MobileMenuCategories = styled.div`
   width: 100%;
   height: auto;
   ${({ theme }) => `
-    border-top: ${theme.border.default};
     border-bottom: ${theme.border.default};
   `}
   ${theme.mixins.forDesktop(`
@@ -105,6 +108,9 @@ const Wrapper = styled.div`
 `;
 
 const Navbar: React.FC = () => {
+  const location = useLocation();
+  const isMenuPage: boolean = location.pathname === "/menu";
+
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
@@ -116,18 +122,25 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button>menu</Button>
+          <Button>
+            <StyledLink to="/menu">menu</StyledLink>
+          </Button>
         </Wrapper>
         <Wrapper>
-          <Button>kontakt</Button>
+          <Button>
+            <StyledLink to="/contact">kontakt</StyledLink>
+          </Button>
         </Wrapper>
       </DesktopMenuCategories>
 
-      <MobileMenuCategories>
-        <Button>przystawki</Button>
-        <Button>ramen</Button>
-        <Button>napoje</Button>
-      </MobileMenuCategories>
+      {isMenuPage && (
+        <MobileMenuCategories>
+          <Button>przystawki</Button>
+          <Button>ramen</Button>
+          <Button>napoje</Button>
+        </MobileMenuCategories>
+      )}
+
       <DesktopLanguagesContainer>
         <LanguageButtons />
       </DesktopLanguagesContainer>
