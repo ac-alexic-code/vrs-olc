@@ -5,8 +5,8 @@ import "./index.css";
 
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./styles/theme";
-
 import { Theme as ThemeType } from "./styles/theme";
+import { BrowserRouter } from "react-router-dom";
 declare module "@emotion/react" {
   // eslint-disable-next-line
   interface Theme extends ThemeType {}
@@ -14,8 +14,10 @@ declare module "@emotion/react" {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
