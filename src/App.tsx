@@ -6,6 +6,9 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 function App() {

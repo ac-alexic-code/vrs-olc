@@ -6,7 +6,6 @@ import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
 import StyledLink from "../styled-link/StyledLink";
-import { useLocation } from "react-router-dom";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -70,18 +69,6 @@ const DesktopMenuCategories = styled.div`
   `)}
 `;
 
-const MobileMenuCategories = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  ${({ theme }) => `
-    border-bottom: ${theme.border.default};
-  `}
-  ${theme.mixins.forDesktop(`
-    display: none;
-  `)}
-`;
-
 const DesktopLanguagesContainer = styled.div`
   display: none;
   ${({ theme }) => `
@@ -108,9 +95,6 @@ const Wrapper = styled.div`
 `;
 
 const Navbar: React.FC = () => {
-  const location = useLocation();
-  const isMenuPage: boolean = location.pathname === "/menu";
-
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
@@ -132,14 +116,6 @@ const Navbar: React.FC = () => {
           </Button>
         </Wrapper>
       </DesktopMenuCategories>
-
-      {isMenuPage && (
-        <MobileMenuCategories>
-          <Button>przystawki</Button>
-          <Button>ramen</Button>
-          <Button>napoje</Button>
-        </MobileMenuCategories>
-      )}
 
       <DesktopLanguagesContainer>
         <LanguageButtons />
