@@ -5,7 +5,7 @@ import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
-import { Urls } from "../../enums/Urls";
+import { Destinations } from "../../enums/Destinations";
 import { useNavigate } from "react-router-dom";
 
 const NavbarUpperContainer = styled.div`
@@ -109,10 +109,12 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button onClick={() => navigate("/menu")}>menu</Button>
+          <Button onClick={() => navigate(Destinations.menu)}>menu</Button>
         </Wrapper>
         <Wrapper>
-          <Button onClick={() => navigate("/contact")}>contact</Button>
+          <Button onClick={() => navigate(Destinations.contact)}>
+            contact
+          </Button>
         </Wrapper>
       </DesktopMenuCategories>
 
@@ -121,10 +123,10 @@ const Navbar: React.FC = () => {
       </DesktopLanguagesContainer>
 
       <NavbarIcons>
-        <a href={Urls.Facebook} target="_blank">
+        <a href={Destinations.facebook} target="_blank">
           <Icon name="facebook" />
         </a>
-        <a href={Urls.Instagram} target="_blank">
+        <a href={Destinations.instagram} target="_blank">
           <Icon name="instagram" />
         </a>
       </NavbarIcons>

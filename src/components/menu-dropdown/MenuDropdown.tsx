@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { Urls } from "../../enums/Urls";
+import { Destinations } from "../../enums/Destinations";
 import { useNavigate } from "react-router-dom";
 
 // Animation
@@ -79,31 +79,16 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
   const redirect = (
     destination: "menu" | "contact" | "facebook" | "instagram"
   ) => {
-    let url;
-    let route;
-    switch (destination) {
-      case "menu":
-        route = "/menu";
-        break;
-      case "contact":
-        route = "/contact";
-        break;
-      case "facebook":
-        url = Urls.Facebook;
-        break;
-      case "instagram":
-        url = Urls.Instagram;
-        break;
-      default:
-        break;
-    }
+    const destinationUrl = Destinations[destination];
 
-    if (!route) {
-      window.open(url, "_blank");
-    } else {
-      navigate(route);
+    if (destinationUrl) {
+      if (destinationUrl.startsWith("http")) {
+        window.open(destinationUrl, "_blank");
+      } else {
+        navigate(destinationUrl);
+      }
+      closeDropdown();
     }
-    closeDropdown();
   };
 
   return (
