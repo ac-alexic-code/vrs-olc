@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import StyledLink from "../styled-link/StyledLink";
+import StyledLink from "../link/Link";
 import { Urls } from "../../enums/Urls";
 
 // Animation
@@ -15,6 +15,7 @@ const fadeIn = keyframes`
 
 // Styled components
 const DropdownButton = styled.button`
+  width: 100%;
   ${({ theme }) => `
     ${theme.mixins.defaultButton()};
     ${theme.mixins.defaultHover()};
@@ -65,31 +66,57 @@ interface MenuDropdownProps {
 
 // MenuDropdown's body
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
-  const handleDropdown = () => {
+  // Close Dropdown function
+  const closeDropdown = () => {
     if (isOpen) {
       onClose();
     }
   };
 
+  // Redirect function
+  const redirect = (
+    destination: "menu" | "contact" | "facebook" | "instagram"
+  ) => {
+    let url;
+    let route;
+    switch (destination) {
+      case "menu":
+        route = "/menu";
+        break;
+      case "contact":
+        route = "/contact";
+        break;
+      case "facebook":
+        url = Urls.Facebook;
+        break;
+      case "instagram":
+        url = Urls.Instagram;
+        break;
+      default:
+        break;
+    }
+
+    if (!route) {
+      window.open(url, "_blank");
+    } else {
+      window.location.href = route;
+    }
+    closeDropdown();
+  };
+
   return (
     <>
-      {isOpen && <Overlay onClick={handleDropdown} />}
+      {isOpen && <Overlay onClick={closeDropdown} />}
       <DropdownContainer>
-        <DropdownButton onClick={handleDropdown}>
-          <StyledLink to="/menu">menu</StyledLink>
+        <DropdownButton onClick={() => redirect("menu")}>menu</DropdownButton>
+        <DropdownButton onClick={() => redirect("contact")}>
+          kontakt
         </DropdownButton>
-        <DropdownButton onClick={handleDropdown}>
-          <StyledLink to="/contact">kontakt</StyledLink>
+        <DropdownButton onClick={() => redirect("facebook")}>
+          facebook
         </DropdownButton>
-        <DropdownButton>
-          <StyledLink to={Urls.Facebook} target="_blank">
-            facebook
-          </StyledLink>
-        </DropdownButton>
-        <DropdownButton>
-          <StyledLink to={Urls.Instagram} target="_blank">
-            instagram
-          </StyledLink>
+        <DropdownButton onClick={() => redirect("instagram")}>
+          instagram
         </DropdownButton>
       </DropdownContainer>
     </>

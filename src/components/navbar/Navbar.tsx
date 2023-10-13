@@ -5,7 +5,7 @@ import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
-import StyledLink from "../styled-link/StyledLink";
+import StyledLink from "../link/Link";
 import { Urls } from "../../enums/Urls";
 
 const NavbarUpperContainer = styled.div`
