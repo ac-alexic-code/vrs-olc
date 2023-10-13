@@ -6,9 +6,12 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
+  ${({ theme }) =>
+    theme.mixins.forDesktop(`
+    flex-direction: row;
+    `)}
 `;
 
 function App() {

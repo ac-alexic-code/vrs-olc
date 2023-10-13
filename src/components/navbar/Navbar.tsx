@@ -5,8 +5,8 @@ import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
-import StyledLink from "../link/Link";
 import { Urls } from "../../enums/Urls";
+import { useNavigate } from "react-router-dom";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -96,6 +96,8 @@ const Wrapper = styled.div`
 `;
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
@@ -107,14 +109,10 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button>
-            <StyledLink to="/menu">menu</StyledLink>
-          </Button>
+          <Button onClick={() => navigate("/menu")}>menu</Button>
         </Wrapper>
         <Wrapper>
-          <Button>
-            <StyledLink to="/contact">kontakt</StyledLink>
-          </Button>
+          <Button onClick={() => navigate("/contact")}>contact</Button>
         </Wrapper>
       </DesktopMenuCategories>
 

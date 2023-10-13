@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import StyledLink from "../link/Link";
 import { Urls } from "../../enums/Urls";
+import { useNavigate } from "react-router-dom";
 
 // Animation
 const fadeIn = keyframes`
@@ -66,6 +66,8 @@ interface MenuDropdownProps {
 
 // MenuDropdown's body
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+
   // Close Dropdown function
   const closeDropdown = () => {
     if (isOpen) {
@@ -99,7 +101,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
     if (!route) {
       window.open(url, "_blank");
     } else {
-      window.location.href = route;
+      navigate(route);
     }
     closeDropdown();
   };
