@@ -6,6 +6,7 @@ import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
 import StyledLink from "../styled-link/StyledLink";
+import { Urls } from "../../enums/Urls";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -122,10 +123,10 @@ const Navbar: React.FC = () => {
       </DesktopLanguagesContainer>
 
       <NavbarIcons>
-        <a href="https://www.facebook.com/veganramenshop" target="_blank">
+        <a href={Urls.Facebook} target="_blank">
           <Icon name="facebook" />
         </a>
-        <a href="https://www.instagram.com/veganramenshop" target="_blank">
+        <a href={Urls.Instagram} target="_blank">
           <Icon name="instagram" />
         </a>
       </NavbarIcons>

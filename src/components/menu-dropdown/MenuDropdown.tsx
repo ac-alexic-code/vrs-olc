@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import StyledLink from "../styled-link/StyledLink";
+import { Urls } from "../../enums/Urls";
 
+// Animation
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -11,6 +13,7 @@ const fadeIn = keyframes`
   }
 `;
 
+// Styled components
 const DropdownButton = styled.button`
   ${({ theme }) => `
     ${theme.mixins.defaultButton()};
@@ -54,11 +57,13 @@ const Overlay = styled.div`
   cursor: pointer;
 `;
 
+// Interfaces
 interface MenuDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+// MenuDropdown's body
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
   const handleDropdown = () => {
     if (isOpen) {
@@ -77,18 +82,12 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
           <StyledLink to="/contact">kontakt</StyledLink>
         </DropdownButton>
         <DropdownButton>
-          <StyledLink
-            to="https://www.facebook.com/veganramenshop"
-            target="_blank"
-          >
+          <StyledLink to={Urls.Facebook} target="_blank">
             facebook
           </StyledLink>
         </DropdownButton>
         <DropdownButton>
-          <StyledLink
-            to="https://www.instagram.com/veganramenshop"
-            target="_blank"
-          >
+          <StyledLink to={Urls.Instagram} target="_blank">
             instagram
           </StyledLink>
         </DropdownButton>
