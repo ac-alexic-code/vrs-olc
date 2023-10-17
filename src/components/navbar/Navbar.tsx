@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import LanguageButtons from "../language-buttons/LanguageButtons";
-import { Icon } from "../icon/Icon";
-import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
-import { Destinations } from "../../enums/Destinations";
-import { useNavigate } from "react-router-dom";
+import { Icon } from "../icon/Icon";
+import { theme } from "../../styles/theme";
+import { routes } from "../../routes/routes";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -109,12 +109,10 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button onClick={() => navigate(Destinations.menu)}>menu</Button>
+          <Button onClick={() => navigate("/menu")}>menu</Button>
         </Wrapper>
         <Wrapper>
-          <Button onClick={() => navigate(Destinations.contact)}>
-            contact
-          </Button>
+          <Button onClick={() => navigate("/contact")}>contact</Button>
         </Wrapper>
       </DesktopMenuCategories>
 
@@ -123,10 +121,10 @@ const Navbar: React.FC = () => {
       </DesktopLanguagesContainer>
 
       <NavbarIcons>
-        <a href={Destinations.facebook} target="_blank">
+        <a href={routes.facebook} target="_blank">
           <Icon name="facebook" />
         </a>
-        <a href={Destinations.instagram} target="_blank">
+        <a href={routes.instagram} target="_blank">
           <Icon name="instagram" />
         </a>
       </NavbarIcons>

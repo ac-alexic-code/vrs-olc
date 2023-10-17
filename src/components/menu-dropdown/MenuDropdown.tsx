@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { Destinations } from "../../enums/Destinations";
+import { routes } from "../../routes/routes";
 import { useNavigate } from "react-router-dom";
 
 // Animation
@@ -64,30 +64,12 @@ interface MenuDropdownProps {
   onClose: () => void;
 }
 
-// MenuDropdown's body
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
-  // Close Dropdown function
   const closeDropdown = () => {
     if (isOpen) {
       onClose();
-    }
-  };
-
-  // Redirect function
-  const redirect = (
-    destination: "menu" | "contact" | "facebook" | "instagram"
-  ) => {
-    const destinationUrl = Destinations[destination];
-
-    if (destinationUrl) {
-      if (destinationUrl.startsWith("http")) {
-        window.open(destinationUrl, "_blank");
-      } else {
-        navigate(destinationUrl);
-      }
-      closeDropdown();
     }
   };
 
@@ -95,14 +77,36 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
     <>
       {isOpen && <Overlay onClick={closeDropdown} />}
       <DropdownContainer>
-        <DropdownButton onClick={() => redirect("menu")}>menu</DropdownButton>
-        <DropdownButton onClick={() => redirect("contact")}>
+        <DropdownButton
+          onClick={() => {
+            navigate("/menu");
+            closeDropdown();
+          }}
+        >
+          menu
+        </DropdownButton>
+        <DropdownButton
+          onClick={() => {
+            navigate("/contact");
+            closeDropdown();
+          }}
+        >
           kontakt
         </DropdownButton>
-        <DropdownButton onClick={() => redirect("facebook")}>
+        <DropdownButton
+          onClick={() => {
+            window.open(routes.facebook, "_blank");
+            closeDropdown();
+          }}
+        >
           facebook
         </DropdownButton>
-        <DropdownButton onClick={() => redirect("instagram")}>
+        <DropdownButton
+          onClick={() => {
+            window.open(routes.instagram, "_blank");
+            closeDropdown();
+          }}
+        >
           instagram
         </DropdownButton>
       </DropdownContainer>
