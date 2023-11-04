@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import LanguageButtons from "../language-buttons/LanguageButtons";
-import { Icon } from "../icon/Icon";
-import { theme } from "../../styles/theme";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
+import { Icon } from "../icon/Icon";
+import { theme } from "../../styles/theme";
+import { routes } from "../../routes/routes";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -13,6 +15,9 @@ const NavbarUpperContainer = styled.div`
   padding: 0 20px;
   width: 100%;
   height: 90px;
+  ${({ theme }) => `
+    border-bottom: ${theme.border.default};
+  `}
   ${theme.mixins.forDesktop(`
     flex-direction: column;
     padding: 0;
@@ -56,26 +61,12 @@ const NavbarIcons = styled.div`
 
 const DesktopMenuCategories = styled.div`
   display: none;
-  border-top: ${theme.border.default};
   ${({ theme }) =>
     theme.mixins.forDesktop(`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
-  `)}
-`;
-
-const MobileMenuCategories = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  ${({ theme }) => `
-    border-top: ${theme.border.default};
-    border-bottom: ${theme.border.default};
-  `}
-  ${theme.mixins.forDesktop(`
-    display: none;
   `)}
 `;
 
@@ -105,6 +96,8 @@ const Wrapper = styled.div`
 `;
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <NavbarContainer>
       <NavbarUpperContainer>
@@ -116,27 +109,22 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button>menu</Button>
+          <Button onClick={() => navigate("/menu")}>menu</Button>
         </Wrapper>
         <Wrapper>
-          <Button>kontakt</Button>
+          <Button onClick={() => navigate("/contact")}>contact</Button>
         </Wrapper>
       </DesktopMenuCategories>
 
-      <MobileMenuCategories>
-        <Button>przystawki</Button>
-        <Button>ramen</Button>
-        <Button>napoje</Button>
-      </MobileMenuCategories>
       <DesktopLanguagesContainer>
         <LanguageButtons />
       </DesktopLanguagesContainer>
 
       <NavbarIcons>
-        <a href="https://www.facebook.com/veganramenshop" target="_blank">
+        <a href={routes.facebook} target="_blank">
           <Icon name="facebook" />
         </a>
-        <a href="https://www.instagram.com/veganramenshop" target="_blank">
+        <a href={routes.instagram} target="_blank">
           <Icon name="instagram" />
         </a>
       </NavbarIcons>

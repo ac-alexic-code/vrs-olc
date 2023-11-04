@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import { routes } from "../../routes/routes";
+import { useNavigate } from "react-router-dom";
 
+// Animation
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -10,7 +13,9 @@ const fadeIn = keyframes`
   }
 `;
 
+// Styled components
 const DropdownButton = styled.button`
+  width: 100%;
   ${({ theme }) => `
     ${theme.mixins.defaultButton()};
     ${theme.mixins.defaultHover()};
@@ -53,13 +58,16 @@ const Overlay = styled.div`
   cursor: pointer;
 `;
 
+// Interfaces
 interface MenuDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
-  const handleDropdown = () => {
+  const navigate = useNavigate();
+
+  const closeDropdown = () => {
     if (isOpen) {
       onClose();
     }
@@ -67,12 +75,40 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {isOpen && <Overlay onClick={handleDropdown} />}
+      {isOpen && <Overlay onClick={closeDropdown} />}
       <DropdownContainer>
-        <DropdownButton>menu</DropdownButton>
-        <DropdownButton>kontakt</DropdownButton>
-        <DropdownButton>facebook</DropdownButton>
-        <DropdownButton>instagram</DropdownButton>
+        <DropdownButton
+          onClick={() => {
+            navigate("/menu");
+            closeDropdown();
+          }}
+        >
+          menu
+        </DropdownButton>
+        <DropdownButton
+          onClick={() => {
+            navigate("/contact");
+            closeDropdown();
+          }}
+        >
+          kontakt
+        </DropdownButton>
+        <DropdownButton
+          onClick={() => {
+            window.open(routes.facebook, "_blank");
+            closeDropdown();
+          }}
+        >
+          facebook
+        </DropdownButton>
+        <DropdownButton
+          onClick={() => {
+            window.open(routes.instagram, "_blank");
+            closeDropdown();
+          }}
+        >
+          instagram
+        </DropdownButton>
       </DropdownContainer>
     </>
   );
