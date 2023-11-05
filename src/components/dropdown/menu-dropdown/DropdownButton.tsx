@@ -11,6 +11,7 @@ const DropdownButton = styled.button`
     background-color: ${theme.colors.white};
     letter-spacing: ${theme.letterSpacing.default};
   `}
+  align-items: center;
   font-size: 26px;
   height: 48px;
   width: 100%;
