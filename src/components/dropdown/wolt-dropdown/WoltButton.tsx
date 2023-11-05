@@ -4,7 +4,7 @@ import DropdownButton from "../menu-dropdown/DropdownButton";
 import { WoltDropdown } from "./WoltDropdown";
 import styled from "@emotion/styled";
 
-const WoltButtonDesktop = styled.div`
+const WoltButtonDesktop = styled(Button)`
   display: none;
   ${({ theme }) => `
     ${theme.mixins.forDesktop(`
@@ -15,7 +15,6 @@ const WoltButtonDesktop = styled.div`
 
 const WoltButtonMobile = styled(DropdownButton)`
   display: flex;
-  width: 100%;
   ${({ theme }) => `
     ${theme.mixins.forDesktop(`
       display: none;
@@ -35,13 +34,22 @@ const WoltButton = () => {
   };
 
   return (
-    <WoltButtonMobile
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      wolt
-      {isWoltDropdownOpen && <WoltDropdown />}
-    </WoltButtonMobile>
+    <>
+      <WoltButtonMobile
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        wolt
+        {isWoltDropdownOpen && <WoltDropdown />}
+      </WoltButtonMobile>
+      <WoltButtonDesktop
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        wolt
+        {isWoltDropdownOpen && <WoltDropdown />}
+      </WoltButtonDesktop>
+    </>
   );
 };
 
