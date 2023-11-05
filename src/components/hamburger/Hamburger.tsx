@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Icon } from "../icon/Icon";
-import MenuDropdown from "../menu-dropdown/MenuDropdown";
+import MenuDropdown from "../dropdown/menu-dropdown/MenuDropdown";
 
 const HamburgerContainer = styled.div`
   display: block;
