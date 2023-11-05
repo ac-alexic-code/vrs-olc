@@ -7,7 +7,7 @@ import Hamburger from "../hamburger/Hamburger";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
 import { routes } from "../../routes/routes";
-import WoltButtonDesktop from "../dropdown/wolt-dropdown/WoltButtonDesktop";
+import WoltButton from "../dropdown/wolt-dropdown/WoltButton";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -116,7 +116,7 @@ const Navbar: React.FC = () => {
           <Button onClick={() => navigate("/contact")}>contact</Button>
         </Wrapper>
         <Wrapper>
-          <WoltButtonDesktop />
+          <WoltButton />
         </Wrapper>
       </DesktopMenuCategories>
 

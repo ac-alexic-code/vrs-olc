@@ -3,9 +3,7 @@ import { routes } from "../../../routes/routes";
 import { useNavigate } from "react-router-dom";
 import DropdownContainer from "./DropdownContainer";
 import DropdownButton from "./DropdownButton";
-import WoltDropdownButton from "../wolt-dropdown/WoltButton";
 import WoltButton from "../wolt-dropdown/WoltButton";
-import WoltButtonMobile from "../wolt-dropdown/WoltButtonMobile";
 
 // Styled components
 const Overlay = styled.div`
@@ -68,7 +66,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
         >
           instagram
         </DropdownButton>
-        <WoltButtonMobile />
+        <WoltButton />
       </DropdownContainer>
     </>
   );

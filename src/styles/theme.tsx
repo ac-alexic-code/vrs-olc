@@ -1,11 +1,9 @@
 const mixins = {
-  forDesktop: (content: string) => {
-    return `
-      @media screen and (min-width: 601px) {
-        ${content}
-      }
-    `;
-  },
+  forDesktop: (content: string) => `
+    @media screen and (min-width: 601px) {
+      ${content}
+    }
+  `,
 
   defaultButton: () => `
     all: unset;
