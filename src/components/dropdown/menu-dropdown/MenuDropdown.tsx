@@ -1,19 +1,9 @@
-import styled from "@emotion/styled";
 import { routes } from "../../../routes/routes";
 import { useNavigate } from "react-router-dom";
 import DropdownContainer from "./DropdownContainer";
 import DropdownButton from "./DropdownButton";
 import WoltButton from "../wolt-dropdown/WoltButton";
-
-// Styled components
-const Overlay = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-`;
+import Overlay from "./Overlay";
 
 // Interfaces
 interface MenuDropdownProps {

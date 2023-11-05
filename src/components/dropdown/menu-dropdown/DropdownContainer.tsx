@@ -12,10 +12,12 @@ const fadeIn = keyframes`
 `;
 
 const DropdownContainer = styled.div`
-  ${({ theme }) =>
-    theme.mixins.forDesktop(`
-    display: none;
-  `)}
+  ${({ theme }) => `
+    width: ${theme.width.menuDropdown};
+    ${theme.mixins.forDesktop(`
+      display: none;
+    `)}
+  `}
   & > :first-of-type {
     border-top: ${({ theme }) => theme.border.default};
   }
@@ -24,7 +26,6 @@ const DropdownContainer = styled.div`
   top: 70px;
   right: 25px;
   height: min-content;
-  width: 200px;
   animation: ${fadeIn} 0.5s;
 `;
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Button from "../../button/Button";
 import DropdownButton from "../menu-dropdown/DropdownButton";
-import { WoltDropdown } from "./WoltDropdown";
 import styled from "@emotion/styled";
+import WoltDropdown from "./WoltDropdown";
 
 const WoltButtonDesktop = styled(Button)`
   display: none;
@@ -29,25 +29,29 @@ const WoltButton = () => {
     setIsWoltDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleCloseDropdown = () => {
     setIsWoltDropdownOpen(false);
   };
 
   return (
     <>
-      <WoltButtonMobile
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <WoltButtonMobile onMouseEnter={handleMouseEnter}>
         wolt
-        {isWoltDropdownOpen && <WoltDropdown />}
+        {isWoltDropdownOpen && (
+          <WoltDropdown
+            isOpen={isWoltDropdownOpen}
+            onClose={handleCloseDropdown}
+          />
+        )}
       </WoltButtonMobile>
-      <WoltButtonDesktop
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      {isWoltDropdownOpen && (
+        <WoltDropdown
+          isOpen={isWoltDropdownOpen}
+          onClose={handleCloseDropdown}
+        />
+      )}
+      <WoltButtonDesktop onMouseEnter={handleMouseEnter}>
         wolt
-        {isWoltDropdownOpen && <WoltDropdown />}
       </WoltButtonDesktop>
     </>
   );
