@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { routes } from "../../../routes/routes";
+import { routesWolt } from "../../../routes/routes";
 import Overlay from "../menu-dropdown/Overlay";
 import DropdownButton from "../menu-dropdown/DropdownButton";
 import DropdownContainer from "../menu-dropdown/DropdownContainer";
@@ -15,6 +15,7 @@ const WoltDropdownContainer = styled(DropdownContainer)`
     ${theme.mixins.forDesktop(`
       position: absolute;
       left: 0;
+      top: 99%;
       display: flex;
       flex-direction: column;
       margin: 0;
@@ -42,7 +43,7 @@ const WoltDropdown: React.FC<WoltDropdownProps> = ({ isOpen, onClose }) => {
       <WoltDropdownContainer>
         <DropdownButton
           onClick={() => {
-            window.open(routes.finka, "_blank");
+            window.open(routesWolt.finka, "_blank");
             closeDropdown();
           }}
         >
@@ -50,7 +51,7 @@ const WoltDropdown: React.FC<WoltDropdownProps> = ({ isOpen, onClose }) => {
         </DropdownButton>
         <DropdownButton
           onClick={() => {
-            window.open(routes.muranow, "_blank");
+            window.open(routesWolt.muranow, "_blank");
             closeDropdown();
           }}
         >
@@ -58,7 +59,7 @@ const WoltDropdown: React.FC<WoltDropdownProps> = ({ isOpen, onClose }) => {
         </DropdownButton>
         <DropdownButton
           onClick={() => {
-            window.open(routes.mokotow, "_blank");
+            window.open(routesWolt.mokotow, "_blank");
             closeDropdown();
           }}
         >

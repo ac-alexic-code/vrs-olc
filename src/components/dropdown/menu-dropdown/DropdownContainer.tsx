@@ -22,8 +22,8 @@ const DropdownContainer = styled.div`
     border-top: ${({ theme }) => theme.border.default};
   }
   z-index: 2000;
-  position: absolute;
-  top: 70px;
+  position: relative;
+  top: 150px;
   right: 25px;
   height: min-content;
   animation: ${fadeIn} 0.5s;

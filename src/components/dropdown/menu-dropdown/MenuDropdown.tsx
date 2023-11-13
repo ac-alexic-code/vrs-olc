@@ -1,4 +1,4 @@
-import { routes } from "../../../routes/routes";
+import { routesMenu } from "../../../routes/routes";
 import { useNavigate } from "react-router-dom";
 import DropdownContainer from "./DropdownContainer";
 import DropdownButton from "./DropdownButton";
@@ -42,7 +42,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
         </DropdownButton>
         <DropdownButton
           onClick={() => {
-            window.open(routes.facebook, "_blank");
+            window.open(routesMenu.facebook, "_blank");
             closeDropdown();
           }}
         >
@@ -50,7 +50,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({ isOpen, onClose }) => {
         </DropdownButton>
         <DropdownButton
           onClick={() => {
-            window.open(routes.instagram, "_blank");
+            window.open(routesMenu.instagram, "_blank");
             closeDropdown();
           }}
         >
