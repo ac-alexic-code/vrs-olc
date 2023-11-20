@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
 
@@ -36,26 +35,14 @@ const Overlay = styled.div`
   cursor: pointer;
 `;
 
-const DropdownContainer = styled.div<{ position?: string }>`
-  ${({ theme, position }) => `
+const DropdownContainer = styled.div`
+  ${({ theme }) => `
     width: ${theme.width.menuDropdown};
-    ${theme.mixins.forDesktop(`
-        left: 2px;
-        top: 48px;
-    `)}
     & > :first-of-type {
       border-top: ${theme.border.default};
     }
     z-index: 2000;
     position: absolute;
-    top: 70px;
-    ${
-      position === "right"
-        ? "right: 205px;"
-        : position === "left"
-        ? "left: 200px;"
-        : "right: 0px; bottom: 0px;"
-    }
     height: min-content;
     animation: ${fadeIn} 0.5s;
   `}
@@ -80,12 +67,7 @@ const DropdownButton = styled.button`
   text-align: left;
 `;
 
-const Dropdown: React.FC<DropdownProps> = ({
-  isOpen,
-  onClose,
-  items,
-  position,
-}) => {
+const Dropdown: React.FC<DropdownProps> = ({ isOpen, onClose, items }) => {
   const closeDropdown = () => {
     if (isOpen) {
       onClose();
@@ -94,8 +76,8 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <>
-      {isOpen && <Overlay onClick={closeDropdown} />}
-      <DropdownContainer position={position}>
+      {isOpen && <Overlay className="overlay" onClick={closeDropdown} />}
+      <DropdownContainer className="dropdown container">
         {items.map((item, index) => (
           <DropdownButton
             key={index}

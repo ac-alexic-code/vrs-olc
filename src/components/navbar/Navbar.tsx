@@ -4,11 +4,11 @@ import Button from "../button/Button";
 import LanguageButtons from "../language-buttons/LanguageButtons";
 import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
-import Dropdown from "../dropdown/Dropdown";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
-import { routesMenu, routesWolt } from "../../routes/routes";
+import { routesMenu } from "../../routes/routes";
 import { useState } from "react";
+import WoltDropdown from "../dropdown/WoltDropdown";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -102,24 +102,10 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   const [isWoltDropdownVisible, setIsWoltDropdownVisible] = useState(false);
-  console.log(isWoltDropdownVisible);
 
   const handleWoltButtonClick = () => {
     setIsWoltDropdownVisible(true);
-    console.log(isWoltDropdownVisible);
   };
-
-  const woltItems = [
-    { label: "finka", action: () => window.open(routesWolt.finka, "_blank") },
-    {
-      label: "muranów",
-      action: () => window.open(routesWolt.muranow, "_blank"),
-    },
-    {
-      label: "mokotów",
-      action: () => window.open(routesWolt.mokotow, "_blank"),
-    },
-  ];
 
   return (
     <NavbarContainer>
@@ -140,11 +126,9 @@ const Navbar: React.FC = () => {
         <Wrapper>
           <Button onClick={handleWoltButtonClick}>wolt</Button>
           {isWoltDropdownVisible && (
-            <Dropdown
-              className="wolt"
+            <WoltDropdown
               isOpen={isWoltDropdownVisible}
               onClose={() => setIsWoltDropdownVisible(false)}
-              items={woltItems}
             />
           )}
         </Wrapper>
