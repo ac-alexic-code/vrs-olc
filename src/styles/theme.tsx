@@ -46,6 +46,11 @@ const letterSpacing = {
   default: "2px",
 };
 
+const width = {
+  menuDropdown: "200px",
+  woltDropdown: "180px",
+};
+
 export const theme = {
   colors,
   fontSize,
@@ -54,6 +59,7 @@ export const theme = {
   border,
   mixins,
   letterSpacing,
+  width,
 };
 
 export type Theme = typeof theme;

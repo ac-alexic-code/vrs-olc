@@ -6,7 +6,9 @@ import Logo from "../logo/Logo";
 import Hamburger from "../hamburger/Hamburger";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
-import { routes } from "../../routes/routes";
+import { routesMenu } from "../../routes/routes";
+import { useState } from "react";
+import WoltDropdown from "../dropdown/WoltDropdown";
 
 const NavbarUpperContainer = styled.div`
   display: flex;
@@ -89,6 +91,7 @@ const MobileLanguagesContainer = styled.div`
 `;
 
 const Wrapper = styled.div`
+  position: relative;
   ${({ theme }) => `
         border-bottom: ${theme.border.default};
         ${theme.mixins.defaultHover()}
@@ -97,6 +100,12 @@ const Wrapper = styled.div`
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
+
+  const [isWoltDropdownVisible, setIsWoltDropdownVisible] = useState(false);
+
+  const handleWoltButtonClick = () => {
+    setIsWoltDropdownVisible(true);
+  };
 
   return (
     <NavbarContainer>
@@ -109,10 +118,19 @@ const Navbar: React.FC = () => {
       </NavbarUpperContainer>
       <DesktopMenuCategories>
         <Wrapper>
-          <Button onClick={() => navigate("/menu")}>menu</Button>
+          <Button onClick={() => navigate(routesMenu.menu)}>menu</Button>
         </Wrapper>
         <Wrapper>
-          <Button onClick={() => navigate("/contact")}>contact</Button>
+          <Button onClick={() => navigate(routesMenu.contact)}>contact</Button>
+        </Wrapper>
+        <Wrapper>
+          <Button onClick={handleWoltButtonClick}>wolt</Button>
+          {isWoltDropdownVisible && (
+            <WoltDropdown
+              isOpen={isWoltDropdownVisible}
+              onClose={() => setIsWoltDropdownVisible(false)}
+            />
+          )}
         </Wrapper>
       </DesktopMenuCategories>
 
@@ -121,10 +139,10 @@ const Navbar: React.FC = () => {
       </DesktopLanguagesContainer>
 
       <NavbarIcons>
-        <a href={routes.facebook} target="_blank">
+        <a href={routesMenu.facebook} target="_blank">
           <Icon name="facebook" />
         </a>
-        <a href={routes.instagram} target="_blank">
+        <a href={routesMenu.instagram} target="_blank">
           <Icon name="instagram" />
         </a>
       </NavbarIcons>

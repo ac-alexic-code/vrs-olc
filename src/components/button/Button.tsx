@@ -25,10 +25,9 @@ const StyledButton = styled.button`
       letter-spacing: ${theme.letterSpacing.default};
       padding-left: 16px;
       justify-content: left;
+      border-right: none !important;
+      border-left: none !important;
 
-      &:nth-of-type(2) {
-        border-bottom: ${theme.border.default};
-      }
     `)}
   `}
 `;

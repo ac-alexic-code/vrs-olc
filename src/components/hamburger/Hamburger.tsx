@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Icon } from "../icon/Icon";
-import MenuDropdown from "../menu-dropdown/MenuDropdown";
+import MenuDropdown from "../dropdown/MenuDropdown";
 
 const HamburgerContainer = styled.div`
   display: block;
@@ -14,10 +14,10 @@ const HamburgerContainer = styled.div`
 `;
 
 const Hamburger: React.FC = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isMenuDropdownVisible, setIsMenuDropdownVisible] = useState(false);
 
   const handleHamburgerClick = () => {
-    setIsDropdownVisible((prevState) => !prevState);
+    setIsMenuDropdownVisible((prevState) => !prevState);
   };
 
   return (
@@ -25,10 +25,10 @@ const Hamburger: React.FC = () => {
       <HamburgerContainer onClick={handleHamburgerClick}>
         <Icon name="hamburger" />
       </HamburgerContainer>
-      {isDropdownVisible && (
+      {isMenuDropdownVisible && (
         <MenuDropdown
-          isOpen={isDropdownVisible}
-          onClose={() => setIsDropdownVisible(false)}
+          isOpen={isMenuDropdownVisible}
+          onClose={() => setIsMenuDropdownVisible(false)}
         />
       )}
     </>
